@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>书评-YDKJS入门与进阶 | jinguo&#39;s home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="">
+    
+    <meta name="description" content="第一章：进入编程代码代码是一组告诉计算机要执行什么任务的特殊指令。通常保存在文本文件中，也可以在浏览器的开发者控制台中直接键入代码。 语句一组单词，数字，和执行一种具体任务的操作符构成了一个语句。语句包含了变量、字面量、操作符。例如a = b * 2; 就是一个语句，而 a、b 是变量，2是字面量，=、* 是操作符。 表达式一个表达式是一个引用，指向变量或值，或者一组用操作符组合的变量和值。12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="书评-YDKJS入门与进阶">
+<meta property="og:url" content="http://yoursite.com/2019/02/15/书评-YDKJS入门与进阶/index.html">
+<meta property="og:site_name" content="jinguo&#39;s home">
+<meta property="og:description" content="第一章：进入编程代码代码是一组告诉计算机要执行什么任务的特殊指令。通常保存在文本文件中，也可以在浏览器的开发者控制台中直接键入代码。 语句一组单词，数字，和执行一种具体任务的操作符构成了一个语句。语句包含了变量、字面量、操作符。例如a = b * 2; 就是一个语句，而 a、b 是变量，2是字面量，=、* 是操作符。 表达式一个表达式是一个引用，指向变量或值，或者一组用操作符组合的变量和值。12">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/up%20%26%20going/cover.jpg">
+<meta property="og:updated_time" content="2019-02-14T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="书评-YDKJS入门与进阶">
+<meta name="twitter:description" content="第一章：进入编程代码代码是一组告诉计算机要执行什么任务的特殊指令。通常保存在文本文件中，也可以在浏览器的开发者控制台中直接键入代码。 语句一组单词，数字，和执行一种具体任务的操作符构成了一个语句。语句包含了变量、字面量、操作符。例如a = b * 2; 就是一个语句，而 a、b 是变量，2是字面量，=、* 是操作符。 表达式一个表达式是一个引用，指向变量或值，或者一组用操作符组合的变量和值。12">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/up%20%26%20going/cover.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/gou.jpg">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端/">前端</a></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/前端/">前端</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-书评-YDKJS入门与进阶" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        书评-YDKJS入门与进阶
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/15/书评-YDKJS入门与进阶/" class="article-date">
+            <time datetime="2019-02-14T16:00:00.000Z" itemprop="datePublished">2019-02-15</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="第一章：进入编程"><a href="#第一章：进入编程" class="headerlink" title="第一章：进入编程"></a>第一章：进入编程</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>代码是一组告诉计算机要执行什么任务的特殊指令。通常保存在文本文件中，也可以在浏览器的开发者控制台中直接键入代码。</p>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><p>一组单词，数字，和执行一种具体任务的操作符构成了一个语句。语句包含了变量、字面量、操作符。例如<code>a = b * 2;</code> 就是一个语句，而 a、b 是变量，2是字面量，=、* 是操作符。</p>
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><p>一个表达式是一个引用，指向变量或值，或者一组用操作符组合的变量和值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 -&gt; 字面量表达式</span><br><span class="line">b -&gt; 变量表达式</span><br><span class="line">b * 2 -&gt; 算数表达式</span><br><span class="line">a = b * 2 -&gt; 赋值表达式</span><br><span class="line">alert(a) -&gt; 函数表达式</span><br></pre></td></tr></table></figure></p>
+<h3 id="执行一个程序"><a href="#执行一个程序" class="headerlink" title="执行一个程序"></a>执行一个程序</h3><p>JavaScript引擎实际上在即时地自上而下的编译程序然后立即运行编译好的代码。</p>
+<h2 id="第二章：进入-JavaScript"><a href="#第二章：进入-JavaScript" class="headerlink" title="第二章：进入 JavaScript"></a>第二章：进入 JavaScript</h2><h3 id="值与类型"><a href="#值与类型" class="headerlink" title="值与类型"></a>值与类型</h3><p>内建类型有：string，number，boolean，null，undefined，symbol，object。<br>通常我们可以用 typeof 来判断类型，但是 JS 中存在一个 bug，就是 typeof null 为 object，这个可以通过 Object.prototype.toString.call(null) 来进行判断。</p>
+<h3 id="值的比较"><a href="#值的比较" class="headerlink" title="值的比较"></a>值的比较</h3><h4 id="true-和-false"><a href="#true-和-false" class="headerlink" title="true 和 false"></a>true 和 false</h4><p>‘’, 0, -0, NaN, null, undefined, false 转 Boolean 为 false，其余都是true。</p>
+<h4 id="等价性"><a href="#等价性" class="headerlink" title="等价性"></a>等价性</h4><p>不准确的描述：== 检查值的等价性而 === 检查值和类型两者的等价性。<br>合理的描述： == 在允许强制转化的条件下检查值的等价性， === 是在不允许强制转换的条件下检查值的等价性。</p>
+<h3 id="this-标识符"><a href="#this-标识符" class="headerlink" title="this 标识符"></a>this 标识符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( <span class="keyword">this</span>.bar );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar = <span class="string">"global"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">	bar: <span class="string">"obj1"</span>,</span><br><span class="line">	foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">	bar: <span class="string">"obj2"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// --------</span></span><br><span class="line"></span><br><span class="line">foo();				<span class="comment">// "global"</span></span><br><span class="line">obj1.foo();			<span class="comment">// "obj1"</span></span><br><span class="line">foo.call( obj2 );	<span class="comment">// "obj2"</span></span><br><span class="line"><span class="keyword">new</span> foo();			<span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>foo() 最终在非 strict 模式中将 this 设置为全局对象 —— 在 strict 模式中，this 将会是 undefined 而且你会在访问 bar 属性时得到一个错误 —— 所以 this.bar 的值是 global。</li>
+<li>obj1.foo() 将 this 设置为对象 obj1。</li>
+<li>foo.call(obj2) 将 this 设置为对象 obj2。</li>
+<li>new foo() 将 this 设置为一个新的空对象。<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3>它的最简单的方法是使用称为<code>Object.create(..)</code>的内建工具。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">	a: <span class="number">42</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 `bar` 并将它链接到 `foo`</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="built_in">Object</span>.create( foo );</span><br><span class="line"></span><br><span class="line">bar.b = <span class="string">"hello world"</span>;</span><br><span class="line"></span><br><span class="line">bar.b;		<span class="comment">// "hello world"</span></span><br><span class="line">bar.a;		<span class="comment">// 42 &lt;-- 委托到 `foo`</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="旧的与新的"><a href="#旧的与新的" class="headerlink" title="旧的与新的"></a>旧的与新的</h3><p>有两种主要的技术可以将新的JavaScript特性“带到”老版本的浏览器中：填补和转译。</p>
+<h4 id="填补"><a href="#填补" class="headerlink" title="填补"></a>填补</h4><p>ES6定义了一个称为Number.isNaN(..)的工具，来为检查NaN值提供一种准确无误的方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Number</span>.isNaN) &#123;</span><br><span class="line">	<span class="built_in">Number</span>.isNaN = <span class="function"><span class="keyword">function</span> <span class="title">isNaN</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x !== x;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>优秀填补例子： <a href="https://github.com/es-shims/es5-shim" target="_blank" rel="noopener">ES5-Shim</a> 和 <a href="https://github.com/es-shims/es6-shim" target="_blank" rel="noopener">ES6-Shim</a></p>
+<h4 id="转译"><a href="#转译" class="headerlink" title="转译"></a>转译</h4><p>ES6增加了一个称为“默认参数值”的新特性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( a );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();		<span class="comment">// 2</span></span><br><span class="line">foo( <span class="number">42</span> );	<span class="comment">// 42</span></span><br></pre></td></tr></table></figure></p>
+<p>转译器会将它转换为老版本语法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="built_in">arguments</span>[<span class="number">0</span>] !== (<span class="keyword">void</span> <span class="number">0</span>) ? <span class="built_in">arguments</span>[<span class="number">0</span>] : <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">console</span>.log( a );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>优秀转译器例子： <a href="https://babeljs.io" target="_blank" rel="noopener">Babel</a> 和 <a href="https://github.com/google/traceur-compiler" target="_blank" rel="noopener">Traceur</a></p>
+<h2 id="第三章：进入-YDKJS"><a href="#第三章：进入-YDKJS" class="headerlink" title="第三章：进入 YDKJS"></a>第三章：进入 YDKJS</h2><h3 id="作用域与闭包"><a href="#作用域与闭包" class="headerlink" title="作用域与闭包"></a>作用域与闭包</h3><p>JS 是“解释型语言”因此是不被编译的，这是错误的。JS 引擎在你的代码执行的前一刻（有时是在执行期间！）编译它。<br>闭包的一个重要应用是模块模式。</p>
+<h3 id="this-与对象原型"><a href="#this-与对象原型" class="headerlink" title="this 与对象原型"></a>this 与对象原型</h3><p>最大的谬误之一是认为 this 关键字指代它所出现的函数，这是错误的。<br>this 关键字是根据函数如何被执行而动态绑定的。</p>
+<h3 id="类型与文法"><a href="#类型与文法" class="headerlink" title="类型与文法"></a>类型与文法</h3><p>理解强制转换，而不是杜绝它的存在。</p>
+<h3 id="异步与性能"><a href="#异步与性能" class="headerlink" title="异步与性能"></a>异步与性能</h3><p>Prmise 是一个“未来值”的一种与时间无关的包装，它让你推理并组合这些未来值而不必关心它们是否已经准备好。另外，它们通过将回调沿着一个可信赖和可组装的 promise 机制传递，有效地解决了 IoC 信任问题。<br>Generator给JS函数引入了一种新的执行模式，generator可以在yield点被暂停而稍后异步地被继续。这种“暂停-继续”的能力让generator在幕后异步地被处理，使看起来同步，顺序执行的代码成为可能。如此，我们就解决了回调的非线性，非本地跳转的困惑，并因此使我们的异步代码看起来是更容易推理的同步代码。</p>
+<h3 id="ES6与未来"><a href="#ES6与未来" class="headerlink" title="ES6与未来"></a>ES6与未来</h3><p>很多值得一读的激动人心的ES6特性：结构，参数默认值，symbol，简洁方式，计算属性，箭头函数，块儿作用域，promise，generator，iterator，模块，代理，weakmap等。<br>JavaScript 的未来是光明的。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/02/15/书评-YDKJS入门与进阶/" data-id="cjs5q7j8b0000iwzt8zfntqhk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "JinGuo"
+        },
+        "headline": "书评-YDKJS入门与进阶",
+        "image": "http://yoursite.comhttps://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/up%20%26%20going/cover.jpg",
+        "keywords": "",
+        "genre": "前端",
+        "datePublished": "2019-02-15",
+        "dateCreated": "2019-02-15",
+        "dateModified": "2019-02-15",
+        "url": "http://yoursite.com/2019/02/15/书评-YDKJS入门与进阶/",
+        "description": "第一章：进入编程代码代码是一组告诉计算机要执行什么任务的特殊指令。通常保存在文本文件中，也可以在浏览器的开发者控制台中直接键入代码。
+语句一组单词，数字，和执行一种具体任务的操作符构成了一个语句。语句包含了变量、字面量、操作符。例如a = b * 2; 就是一个语句，而 a、b 是变量，2是字面量，=、* 是操作符。
+表达式一个表达式是一个引用，指向变量或值，或者一组用操作符组合的变量和值。12"
+        "wordCount": 472
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/janggwa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/13/学习-TypeScript入门/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">学习-TypeScript入门</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/15/书评-YDKJS入门与进阶/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/up%20%26%20going/cover.jpg)" alt="书评-YDKJS入门与进阶" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/15/书评-YDKJS入门与进阶/" class="title">书评-YDKJS入门与进阶</a></p>
+                            <p class="item-date"><time datetime="2019-02-14T16:00:00.000Z" itemprop="datePublished">2019-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/13/学习-TypeScript入门/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.janggwa.cn/typescript.jpeg)" alt="学习-TypeScript入门" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/13/学习-TypeScript入门/" class="title">学习-TypeScript入门</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T16:00:00.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 JinGuo</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/02/15/书评-YDKJS入门与进阶/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
