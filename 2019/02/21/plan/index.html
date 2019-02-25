@@ -6,17 +6,23 @@
     
 
     
-    <title>归档 | jinguo&#39;s home</title>
+    <title>jinguo&#39;s home</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
+        <meta name="keywords" content="">
+    
+    <meta name="description" content="1.基础学习（YDKJS、es6、interviewmap）2.设计模式学习3.源码设计（react、webpack）">
+<meta property="og:type" content="article">
 <meta property="og:title" content="jinguo&#39;s home">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/plan/index.html">
 <meta property="og:site_name" content="jinguo&#39;s home">
+<meta property="og:description" content="1.基础学习（YDKJS、es6、interviewmap）2.设计模式学习3.源码设计（react、webpack）">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-21T06:03:58.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jinguo&#39;s home">
+<meta name="twitter:description" content="1.基础学习（YDKJS、es6、interviewmap）2.设计模式学习3.源码设计（react、webpack）">
     
 
     
@@ -125,219 +131,133 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>归档
+    未分类
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
+                            <article id="post-plan" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/21/plan/" class="article-date">
+            <time datetime="2019-02-21T06:02:30.771Z" itemprop="datePublished">2019-02-21</time>
+        </a>
+    </div>
 
-    
-    
-        
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
+		
+
+                
             </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
         
-        <a href="/2019/02/21/plan/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2019/02/21/plan/">0</span>
-    
-</span>
+        <div class="article-entry" itemprop="articleBody">
+            <p>1.基础学习（YDKJS、es6、interviewmap）<br>2.设计模式学习<br>3.源码设计（react、webpack）</p>
 
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
+        </div>
+        <footer class="article-footer">
             
-            </div>
-            <div class="date"><time datetime="2019-02-21T06:02:30.771Z" itemprop="datePublished">2019-02-21</time></div>
-        </div>
-        
-        <p class="article-excerpt">
-            1.基础学习（YDKJS、es6、interviewmap）2.设计模式学习3.源码设计（react、webpack）
 
-        </p>
+
+
+    <a data-url="http://yoursite.com/2019/02/21/plan/" data-id="cjsk3qb950005ogzt6l2ssbpl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "JinGuo"
+        },
+        
+        "image": "http://yoursite.com",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2019-02-21",
+        "dateCreated": "2019-02-21",
+        "dateModified": "2019-02-21",
+        "url": "http://yoursite.com/2019/02/21/plan/",
+        "description": "1.基础学习（YDKJS、es6、interviewmap）2.设计模式学习3.源码设计（react、webpack）
+"
+        "wordCount": 1
+    }
+</script>
+
 </article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/02/18/书评-YDKJS作用域和闭包/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg)" alt="书评-YDKJS作用域与闭包" class="thumbnail-image"></span>
-    
+    <section id="comments">
     
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2019/02/18/书评-YDKJS作用域和闭包/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/前端/">前端</a>
-            </div>
-            <div class="date"><time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/02/18/书评-YDKJS作用域和闭包/">书评-YDKJS作用域与闭包</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。
-编译器理论编译的三个步骤
-1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&gt; var, a, =, 2, ;。
-2.解析：将一个 token 的流转换成一个嵌套元素的树，
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
-    
-        </div>
-    
 
     
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/02/15/书评-YDKJS入门与进阶/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/up%20%26%20going/cover.jpg)" alt="书评-YDKJS入门与进阶" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2019/02/15/书评-YDKJS入门与进阶/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/前端/">前端</a>
-            </div>
-            <div class="date"><time datetime="2019-02-14T16:00:00.000Z" itemprop="datePublished">2019-02-15</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/02/15/书评-YDKJS入门与进阶/">书评-YDKJS入门与进阶</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            第一章：进入编程代码代码是一组告诉计算机要执行什么任务的特殊指令。通常保存在文本文件中，也可以在浏览器的开发者控制台中直接键入代码。
-语句一组单词，数字，和执行一种具体任务的操作符构成了一个语句。语句包含了变量、字面量、操作符。例如a = b * 2; 就是一个语句，而 a、b 是变量，2是字面量，=、* 是操作符。
-表达式一个表达式是一个引用，指向变量或值，或者一组用操作符组合的变量和值。12
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/02/13/学习-TypeScript入门/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://img.janggwa.cn/typescript.jpeg)" alt="学习-TypeScript入门" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2019/02/13/学习-TypeScript入门/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/前端/">前端</a>
-            </div>
-            <div class="date"><time datetime="2019-02-12T16:00:00.000Z" itemprop="datePublished">2019-02-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/02/13/学习-TypeScript入门/">学习-TypeScript入门</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            什么是 TypeScriptTypeScript 是 JavaScript 的超集，主要提供了类型系统和对 ES6 的支持。它编译出来是 JavaScript，可以运行在任何浏览器上。
-TypeScript 的优点
-增加了代码的可读性和可维护性（类型系统、编译报错、代码补全、接口提示等）
-TypeScript 非常包容（类型推论、定义一切类型、兼容三方库等）
-TypeScript 拥有活跃的社区（
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
+    </section>
 
 
 
@@ -359,6 +279,19 @@ TypeScript 拥有活跃的社区（
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/18/书评-YDKJS作用域和闭包/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">书评-YDKJS作用域与闭包</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -511,11 +444,13 @@ TypeScript 拥有活跃的社区（
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'http://yoursite.com/2019/02/21/plan/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

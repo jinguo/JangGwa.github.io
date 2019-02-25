@@ -6,21 +6,25 @@
     
 
     
-    <title>jinguo&#39;s home</title>
+    <title>书评-YDKJS作用域与闭包 | jinguo&#39;s home</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="金果的书屋，随心所欲的写想写的东西。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="jinguo&#39;s home">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+        <meta name="keywords" content="">
+    
+    <meta name="description" content="第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。 编译器理论编译的三个步骤 1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&amp;gt; var, a, =, 2, ;。 2.解析：将一个 token 的流转换成一个嵌套元素的树，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="书评-YDKJS作用域与闭包">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/书评-YDKJS作用域和闭包/index.html">
 <meta property="og:site_name" content="jinguo&#39;s home">
-<meta property="og:description" content="金果的书屋，随心所欲的写想写的东西。">
+<meta property="og:description" content="第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。 编译器理论编译的三个步骤 1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&amp;gt; var, a, =, 2, ;。 2.解析：将一个 token 的流转换成一个嵌套元素的树，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-30T07:44:43.178Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg">
+<meta property="og:updated_time" content="2019-02-17T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jinguo&#39;s home">
-<meta name="twitter:description" content="金果的书屋，随心所欲的写想写的东西。">
+<meta name="twitter:title" content="书评-YDKJS作用域与闭包">
+<meta name="twitter:description" content="第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。 编译器理论编译的三个步骤 1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&amp;gt; var, a, =, 2, ;。 2.解析：将一个 token 的流转换成一个嵌套元素的树，">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg">
     
 
     
@@ -129,18 +133,58 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    jinguo's home
+    <a class="page-title-link" href="/categories/前端/">前端</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="page-" class="article article-single article-type-page" itemscope="" itemprop="blogPost">
+                            <article id="post-书评-YDKJS作用域和闭包" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        书评-YDKJS作用域与闭包
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/18/书评-YDKJS作用域和闭包/" class="article-date">
+            <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>金果的书屋，随心所欲的写想写的东西。</p>
+            <h2 id="第一章-什么是作用域？"><a href="#第一章-什么是作用域？" class="headerlink" title="第一章 什么是作用域？"></a>第一章 什么是作用域？</h2><p>几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。<br>作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。</p>
+<h3 id="编译器理论"><a href="#编译器理论" class="headerlink" title="编译器理论"></a>编译器理论</h3><p>编译的三个步骤</p>
+<p>1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：<code>var a = 2;=&gt; var, a, =, 2, ;</code>。</p>
+<p>2.解析：将一个 token 的流转换成一个嵌套元素的树，它综合地表示了程序的语法结构。这棵树称为抽象语法树（AST）</p>
+<p>3.代码生成：这个处理将抽象语法树转换为可执行的代码。</p>
+<p>JavaScript 的编译和其他语言不同，不是提前发生在一个构建的步骤中。对于 JavaScript 来说，在许多情况下，编译发生在代码执行前的仅仅几微秒之内。为了确保最快的性能，JS 引擎使用了 JIT等等</p>
+<h3 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h3><p>引擎：负责从始至终的编译和执行我们的 JavaScript 程序。<br>编译器：引擎的朋友之一；处理所有解析和代码生成的活儿。<br>作用域：引擎的另一个朋友；收集并维护一张所有被声明的标识符的列表，并对当前执行中的代码如何访问这些变量强制实施一组严格的规则。</p>
+<p>对于 <code>var a = 2;</code>这个语句，编译器将会这样处理：</p>
+<p>1.遇到<code>var a</code>，编译器让作用域去查看对于这个特定的作用域集合，变量 a 是否已经存在了。如果是，编译器就忽略这个声明并继续前进。否则，编译器就让作用域去为这个作用域集合声明一个称为 a 的新变量。</p>
+<p>2.然后编译器为引擎生成稍后要执行的代码，来处理赋值 <code>a = 2</code>。引擎 运行的代码首先让作用域 去查看在当前的作用域集合中是否有一个称为 a 的变量可以访问。如果有，引擎就使用这个变量。如果没有，引擎会喊出一个错误。</p>
+<h3 id="嵌套的作用域"><a href="#嵌套的作用域" class="headerlink" title="嵌套的作用域"></a>嵌套的作用域</h3><p>嵌套的作用域就像一个代码块儿或函数被嵌套在另一个代码块儿或函数中一样，作用域被嵌套在其他的作用域中。</p>
+<p>遍历嵌套作用域的简单规则：引擎从当前执行的作用域开始，在那里查找变量，如果没有找到，就向上走一级继续查找，如此类推。如果到了最外层的全局作用域，那么查找就会停止，无论它是否找到了变量。</p>
+<h2 id="第二章-词法作用域"><a href="#第二章-词法作用域" class="headerlink" title="第二章 词法作用域"></a>第二章 词法作用域</h2><p>作用域的工作方式有两种占统治地位的模型。其中第一种是最常见的词法作用域，另一种是动态作用域。</p>
+<p>JavaScript 所采用的作用域模型是词法作用域。</p>
+<p>词法作用域是在词法分析时被定义的作用域。</p>
+<p>欺骗词法作用域：eval 函数和 with 关键字的使用。</p>
+<p>欺骗词法作用域的使用会导致更低下的性能。因为 JS 引擎的一些优化原理都归结在实质上在进行词法分析时可以静态地分析代码，并提前决定所有的变量和函数声明在什么位置。如果发现一个 eval 或是 with，它实质上就不得不假定自己知道的所有标识符的位置可能是无效的。</p>
+<h2 id="第三章-函数与块儿作用域"><a href="#第三章-函数与块儿作用域" class="headerlink" title="第三章 函数与块儿作用域"></a>第三章 函数与块儿作用域</h2><p>函数中的作用域也就是声明的每一个函数都为自己创建了一个作用域。</p>
 
         </div>
         <footer class="article-footer">
@@ -148,7 +192,7 @@
 
 
 
-    <a data-url="http://yoursite.com/about/index.html" data-id="cjsk3qb930004ogzttf2msp5c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/02/18/书评-YDKJS作用域和闭包/" data-id="cjsk3qb8b0000ogzt50lujlz4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -218,17 +262,19 @@
             "@type": "Person",
             "name": "JinGuo"
         },
-        
-        "image": "http://yoursite.com",
-        
-        
-        "datePublished": "2019-01-30",
-        "dateCreated": "2019-01-30",
-        "dateModified": "2019-01-30",
-        "url": "http://yoursite.com/about/index.html",
-        "description": "金果的书屋，随心所欲的写想写的东西。
-"
-        "wordCount": 1
+        "headline": "书评-YDKJS作用域与闭包",
+        "image": "http://yoursite.comhttps://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg",
+        "keywords": "",
+        "genre": "前端",
+        "datePublished": "2019-02-18",
+        "dateCreated": "2019-02-18",
+        "dateModified": "2019-02-18",
+        "url": "http://yoursite.com/2019/02/18/书评-YDKJS作用域和闭包/",
+        "description": "第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。
+编译器理论编译的三个步骤
+1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&gt; var, a, =, 2, ;。
+2.解析：将一个 token 的流转换成一个嵌套元素的树，"
+        "wordCount": 74
     }
 </script>
 
@@ -264,6 +310,29 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/02/21/plan/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            (no title)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/02/15/书评-YDKJS入门与进阶/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">书评-YDKJS入门与进阶</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -416,7 +485,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/about/index.html';
+    var disqus_url = 'http://yoursite.com/2019/02/18/书评-YDKJS作用域和闭包/';
     
     (function() {
     var dsq = document.createElement('script');
