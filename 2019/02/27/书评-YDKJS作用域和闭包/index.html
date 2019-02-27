@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>书评-YDKJS作用域与闭包 | jinguo&#39;s home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="">
+    
+    <meta name="description" content="第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。 编译器理论编译的三个步骤 1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&amp;gt; var, a, =, 2, ;。 2.解析：将一个 token 的流转换成一个嵌套元素的树，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="书评-YDKJS作用域与闭包">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/书评-YDKJS作用域和闭包/index.html">
+<meta property="og:site_name" content="jinguo&#39;s home">
+<meta property="og:description" content="第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。 编译器理论编译的三个步骤 1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&amp;gt; var, a, =, 2, ;。 2.解析：将一个 token 的流转换成一个嵌套元素的树，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg">
+<meta property="og:updated_time" content="2019-02-26T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="书评-YDKJS作用域与闭包">
+<meta name="twitter:description" content="第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。 编译器理论编译的三个步骤 1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&amp;gt; var, a, =, 2, ;。 2.解析：将一个 token 的流转换成一个嵌套元素的树，">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/gou.jpg">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端/">前端</a></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/前端/">前端</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-书评-YDKJS作用域和闭包" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        书评-YDKJS作用域与闭包
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/27/书评-YDKJS作用域和闭包/" class="article-date">
+            <time datetime="2019-02-26T16:00:00.000Z" itemprop="datePublished">2019-02-27</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="第一章-什么是作用域？"><a href="#第一章-什么是作用域？" class="headerlink" title="第一章 什么是作用域？"></a>第一章 什么是作用域？</h2><p>几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。<br>作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。</p>
+<h3 id="编译器理论"><a href="#编译器理论" class="headerlink" title="编译器理论"></a>编译器理论</h3><p>编译的三个步骤</p>
+<p>1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：<code>var a = 2;=&gt; var, a, =, 2, ;</code>。</p>
+<p>2.解析：将一个 token 的流转换成一个嵌套元素的树，它综合地表示了程序的语法结构。这棵树称为抽象语法树（AST）</p>
+<p>3.代码生成：这个处理将抽象语法树转换为可执行的代码。</p>
+<p>JavaScript 的编译和其他语言不同，不是提前发生在一个构建的步骤中。对于 JavaScript 来说，在许多情况下，编译发生在代码执行前的仅仅几微秒之内。为了确保最快的性能，JS 引擎使用了 JIT等等</p>
+<h3 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h3><p>引擎：负责从始至终的编译和执行我们的 JavaScript 程序。<br>编译器：引擎的朋友之一；处理所有解析和代码生成的活儿。<br>作用域：引擎的另一个朋友；收集并维护一张所有被声明的标识符的列表，并对当前执行中的代码如何访问这些变量强制实施一组严格的规则。</p>
+<p>对于 <code>var a = 2;</code>这个语句，编译器将会这样处理：</p>
+<p>1.遇到<code>var a</code>，编译器让作用域去查看对于这个特定的作用域集合，变量 a 是否已经存在了。如果是，编译器就忽略这个声明并继续前进。否则，编译器就让作用域去为这个作用域集合声明一个称为 a 的新变量。</p>
+<p>2.然后编译器为引擎生成稍后要执行的代码，来处理赋值 <code>a = 2</code>。引擎 运行的代码首先让作用域 去查看在当前的作用域集合中是否有一个称为 a 的变量可以访问。如果有，引擎就使用这个变量。如果没有，引擎会喊出一个错误。</p>
+<h3 id="嵌套的作用域"><a href="#嵌套的作用域" class="headerlink" title="嵌套的作用域"></a>嵌套的作用域</h3><p>嵌套的作用域就像一个代码块儿或函数被嵌套在另一个代码块儿或函数中一样，作用域被嵌套在其他的作用域中。</p>
+<p>遍历嵌套作用域的简单规则：引擎从当前执行的作用域开始，在那里查找变量，如果没有找到，就向上走一级继续查找，如此类推。如果到了最外层的全局作用域，那么查找就会停止，无论它是否找到了变量。</p>
+<h2 id="第二章-词法作用域"><a href="#第二章-词法作用域" class="headerlink" title="第二章 词法作用域"></a>第二章 词法作用域</h2><p>作用域的工作方式有两种占统治地位的模型。其中第一种是最常见的词法作用域，另一种是动态作用域。</p>
+<p>JavaScript 所采用的作用域模型是词法作用域。</p>
+<p>词法作用域是在词法分析时被定义的作用域。</p>
+<p>欺骗词法作用域：eval 函数和 with 关键字的使用。</p>
+<p>欺骗词法作用域的使用会导致更低下的性能。因为 JS 引擎的一些优化原理都归结在实质上在进行词法分析时可以静态地分析代码，并提前决定所有的变量和函数声明在什么位置。如果发现一个 eval 或是 with，它实质上就不得不假定自己知道的所有标识符的位置可能是无效的。</p>
+<h2 id="第三章-函数与块儿作用域"><a href="#第三章-函数与块儿作用域" class="headerlink" title="第三章 函数与块儿作用域"></a>第三章 函数与块儿作用域</h2><h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>函数中的作用域也就是声明的每一个函数都为自己创建了一个作用域。<br>立即调用函数表达式可以生成一个自己的作用域。</p>
+<h3 id="块儿作用域"><a href="#块儿作用域" class="headerlink" title="块儿作用域"></a>块儿作用域</h3><p>ES6引入了 let 和 const，它们都会创建一个块儿作用域。<br>let 做出的声明不会在他们所出现的块儿的作用域中提升。</p>
+<h2 id="第四章-提升"><a href="#第四章-提升" class="headerlink" title="第四章 提升"></a>第四章 提升</h2><p>在代码的任何部分被执行之前，所有的声明，变量和函数，都会首先被处理。以下是两个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log( a ); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( a ); <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>函数声明会被提升，但是函数表达式不会。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( a ); <span class="comment">// undefined</span></span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo(); <span class="comment">// 不是 ReferenceError， 而是 TypeError! 因为变量 foo 被提升了，但是值为 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>函数声明和变量声明都会被提升。但是函数会首先被提升，然后才是变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo(); <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">var</span> foo;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( <span class="number">1</span> );</span><br><span class="line">&#125;</span><br><span class="line">foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( <span class="number">2</span> );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这个代码被引擎解释执行为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( <span class="number">1</span> );</span><br><span class="line">&#125;</span><br><span class="line">foo(); <span class="comment">// 1</span></span><br><span class="line">foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log( <span class="number">2</span> );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这里的一个注意点就是 var foo 是一个重复的声明，会被忽略。</p>
+<h2 id="第五章-作用域闭包"><a href="#第五章-作用域闭包" class="headerlink" title="第五章 作用域闭包"></a>第五章 作用域闭包</h2><p>闭包就是函数能够记住并访问它的词法作用域，即使当这个函数在它的词法作用域之外执行时。<br>以下例子是一个典型的闭包案例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log( a );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> baz = foo();</span><br><span class="line">baz(); <span class="comment">// 2 -- 哇噢，看到闭包了，伙计。</span></span><br></pre></td></tr></table></figure></p>
+<p>我们生活中经常使用到的闭包<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wait</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">	setTimeout( <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log( message );</span><br><span class="line">	&#125;, <span class="number">1000</span> );</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">wait( <span class="string">"Hello, closure!"</span> );</span><br></pre></td></tr></table></figure></p>
+<p>还有模块就是利用了闭包的力量，我们看下面的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CoolModule</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> something = <span class="string">"cool"</span>;</span><br><span class="line">	<span class="keyword">var</span> another = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log( something );</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">doAnother</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log( another.join( <span class="string">" ! "</span> ) );</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		doSomething: doSomething,</span><br><span class="line">		doAnother: doAnother</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = CoolModule();</span><br><span class="line"></span><br><span class="line">foo.doSomething(); <span class="comment">// cool</span></span><br><span class="line">foo.doAnother(); <span class="comment">// 1 ! 2 ! 3</span></span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/02/27/书评-YDKJS作用域和闭包/" data-id="cjsmjcaqm0000lhztnh678qxz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "JinGuo"
+        },
+        "headline": "书评-YDKJS作用域与闭包",
+        "image": "http://yoursite.comhttps://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg",
+        "keywords": "",
+        "genre": "前端",
+        "datePublished": "2019-02-27",
+        "dateCreated": "2019-02-27",
+        "dateModified": "2019-02-27",
+        "url": "http://yoursite.com/2019/02/27/书评-YDKJS作用域和闭包/",
+        "description": "第一章 什么是作用域？几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。
+编译器理论编译的三个步骤
+1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：var a = 2;=&gt; var, a, =, 2, ;。
+2.解析：将一个 token 的流转换成一个嵌套元素的树，"
+        "wordCount": 496
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/janggwa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/15/书评-YDKJS入门与进阶/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">书评-YDKJS入门与进阶</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/27/书评-YDKJS作用域和闭包/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg)" alt="书评-YDKJS作用域与闭包" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/27/书评-YDKJS作用域和闭包/" class="title">书评-YDKJS作用域与闭包</a></p>
+                            <p class="item-date"><time datetime="2019-02-26T16:00:00.000Z" itemprop="datePublished">2019-02-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/15/书评-YDKJS入门与进阶/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/up%20%26%20going/cover.jpg)" alt="书评-YDKJS入门与进阶" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/15/书评-YDKJS入门与进阶/" class="title">书评-YDKJS入门与进阶</a></p>
+                            <p class="item-date"><time datetime="2019-02-14T16:00:00.000Z" itemprop="datePublished">2019-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/13/学习-TypeScript入门/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.janggwa.cn/typescript.jpeg)" alt="学习-TypeScript入门" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/13/学习-TypeScript入门/" class="title">学习-TypeScript入门</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T16:00:00.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 JinGuo</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/02/27/书评-YDKJS作用域和闭包/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
