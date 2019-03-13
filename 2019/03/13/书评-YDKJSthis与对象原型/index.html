@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>书评-YDKJSthis与对象原型 | jinguo&#39;s home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="">
+    
+    <meta name="description" content="第一章：this 是什么this 不是编写时绑定，而是运行时绑定。它依赖于函数调用的上下文条件。 this 绑定与函数声明的位置没有任何关系，而与函数被调用的方式紧密相连。 this 既不是函数自身的引用，也不是函数词法作用域的引用。 this 实际上是在函数被调用时建立的一个绑定，它指向什么是完全由函数被调用的调用点来决定的。 首先展示一下 this 的动机和用途:123456789101112">
+<meta property="og:type" content="article">
+<meta property="og:title" content="书评-YDKJSthis与对象原型">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/书评-YDKJSthis与对象原型/index.html">
+<meta property="og:site_name" content="jinguo&#39;s home">
+<meta property="og:description" content="第一章：this 是什么this 不是编写时绑定，而是运行时绑定。它依赖于函数调用的上下文条件。 this 绑定与函数声明的位置没有任何关系，而与函数被调用的方式紧密相连。 this 既不是函数自身的引用，也不是函数词法作用域的引用。 this 实际上是在函数被调用时建立的一个绑定，它指向什么是完全由函数被调用的调用点来决定的。 首先展示一下 this 的动机和用途:123456789101112">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/this%20&%20object%20prototypes/cover.jpg">
+<meta property="og:updated_time" content="2019-03-12T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="书评-YDKJSthis与对象原型">
+<meta name="twitter:description" content="第一章：this 是什么this 不是编写时绑定，而是运行时绑定。它依赖于函数调用的上下文条件。 this 绑定与函数声明的位置没有任何关系，而与函数被调用的方式紧密相连。 this 既不是函数自身的引用，也不是函数词法作用域的引用。 this 实际上是在函数被调用时建立的一个绑定，它指向什么是完全由函数被调用的调用点来决定的。 首先展示一下 this 的动机和用途:123456789101112">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/this%20&%20object%20prototypes/cover.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/gou.jpg">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端/">前端</a></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/前端/">前端</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-书评-YDKJSthis与对象原型" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        书评-YDKJSthis与对象原型
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/03/13/书评-YDKJSthis与对象原型/" class="article-date">
+            <time datetime="2019-03-12T16:00:00.000Z" itemprop="datePublished">2019-03-13</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="第一章：this-是什么"><a href="#第一章：this-是什么" class="headerlink" title="第一章：this 是什么"></a>第一章：this 是什么</h2><p>this 不是编写时绑定，而是运行时绑定。它依赖于函数调用的上下文条件。 this 绑定与函数声明的位置没有任何关系，而与函数被调用的方式紧密相连。</p>
+<p>this 既不是函数自身的引用，也不是函数词法作用域的引用。</p>
+<p>this 实际上是在函数被调用时建立的一个绑定，它指向什么是完全由函数被调用的调用点来决定的。</p>
+<p>首先展示一下 this 的动机和用途:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identify</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name.toUpperCase();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">speak</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> greeting = <span class="string">"Hello, I'm "</span> + identify.call( <span class="keyword">this</span> );</span><br><span class="line">	<span class="built_in">console</span>.log( greeting );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> me = &#123;</span><br><span class="line">	name: <span class="string">"Kyle"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> you = &#123;</span><br><span class="line">	name: <span class="string">"Reader"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">identify.call( me ); <span class="comment">// KYLE</span></span><br><span class="line">identify.call( you ); <span class="comment">// READER</span></span><br><span class="line"></span><br><span class="line">speak.call( me ); <span class="comment">// Hello, I'm KYLE</span></span><br><span class="line">speak.call( you ); <span class="comment">// Hello, I'm READER</span></span><br></pre></td></tr></table></figure></p>
+<p>与使用 this 相反地，你可以明确地将环境对象传递给 <code>identify()</code> 和 <code>speak()</code>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identify</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> context.name.toUpperCase();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">speak</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> greeting = <span class="string">"Hello, I'm "</span> + identify( context );</span><br><span class="line">	<span class="built_in">console</span>.log( greeting );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">identify( you ); <span class="comment">// READER</span></span><br><span class="line">speak( me ); <span class="comment">// Hello, I'm KYLE</span></span><br></pre></td></tr></table></figure></p>
+<p>this 机制提供了更优雅的方式来隐含地传递一个对象引用，导致更加干净的API设计和更容易的复用。</p>
+<h2 id="第二章：this-豁然开朗"><a href="#第二章：this-豁然开朗" class="headerlink" title="第二章：this 豁然开朗"></a>第二章：this 豁然开朗</h2><p>首先我们展示一下调用栈和调用点：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 调用栈是: `baz`</span></span><br><span class="line">    <span class="comment">// 我们的调用点是 global scope（全局作用域）</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">"baz"</span> );</span><br><span class="line">    bar(); <span class="comment">// &lt;-- `bar` 的调用点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 调用栈是: `baz` -&gt; `bar`</span></span><br><span class="line">    <span class="comment">// 我们的调用点位于 `baz`</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">"bar"</span> );</span><br><span class="line">    foo(); <span class="comment">// &lt;-- `foo` 的 call-site</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 调用栈是: `baz` -&gt; `bar` -&gt; `foo`</span></span><br><span class="line">    <span class="comment">// 我们的调用点位于 `bar`</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">"foo"</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">baz(); <span class="comment">// &lt;-- `baz` 的调用点</span></span><br></pre></td></tr></table></figure></p>
+<p>在分析代码来寻找（从调用栈中）真正的调用点时要小心，因为它是影响 this 绑定的唯一因素。</p>
+<p>那么调用点是如何决定在函数执行期间 this 指向哪里的。</p>
+<p>我们有四种 this 绑定规则：默认绑定、隐含绑定、明确绑定、new 绑定。</p>
+<p>判定 this 的步骤：</p>
+<ol>
+<li><p>我们可以先判断函数是通过 new 被调用的嘛？如果是， this 就是新构建的函数。</p>
+</li>
+<li><p>然后判断函数是通过 call 或 apply 被调用，甚至是隐藏在 bind 硬绑定中吗？ 如果是，this 就是那个被明确指定的对象。</p>
+</li>
+<li><p>然后判断函数是通过环境对象被调用的嘛？ 如果是，this 就是那个环境对象。</p>
+</li>
+<li><p>否则，使用默认的 this。如果在 strict mode 下，就是 undefined，否则就是 global 对象。</p>
+</li>
+</ol>
+<p>如果传递 null 或 undefined 作为 call、 apply 或 bind 的 this 绑定参数，那么这些值会被忽略掉，取而代之的是默认绑定规则将适用于这个调用。这样会带来一些潜在的危险。如果你这样处理一些函数调用，而且那些函数确实使用了 this 引用，那么默认绑定规则意味着它可能会不经意间引用 global 对象。很显然，这样的陷阱会导致多种非常难诊断和追踪的 bug。安全的做法是通过 <code>Object.create(null)</code> 来作为绑定参数。</p>
+<p>我们知道硬绑定是一种通过将函数强制绑定到特定的 this 上，来防止函数调用在不经意间退回到默认绑定的策略。问题是，硬绑定极大地降低了函数的灵活性，阻止我们手动使用隐含绑定或后续的明确绑定来覆盖 this。</p>
+<p>软化绑定的思路就是为默认绑定提供不同的默认值，同时保持函数可以通过隐含绑定或明确绑定技术来手动绑定 this。</p>
+<p>下面我们就分别展示硬绑定和软化绑定的代码实现<br>硬绑定<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Function</span>.prototype.bind) &#123;</span><br><span class="line">	<span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">oThis</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>) &#123;</span><br><span class="line">			<span class="comment">// 可能的与 ECMAScript 5 内部的 IsCallable 函数最接近的东西，</span></span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>( <span class="string">"Function.prototype.bind - what "</span> +</span><br><span class="line">				<span class="string">"is trying to be bound is not callable"</span></span><br><span class="line">			);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">var</span> aArgs = <span class="built_in">Array</span>.prototype.slice.call( <span class="built_in">arguments</span>, <span class="number">1</span> ),</span><br><span class="line">			fToBind = <span class="keyword">this</span>,</span><br><span class="line">			fNOP = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</span><br><span class="line">			fBound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> fToBind.apply(</span><br><span class="line">					(</span><br><span class="line">						<span class="keyword">this</span> <span class="keyword">instanceof</span> fNOP &amp;&amp;</span><br><span class="line">						oThis ? <span class="keyword">this</span> : oThis</span><br><span class="line">					),</span><br><span class="line">					aArgs.concat( <span class="built_in">Array</span>.prototype.slice.call( <span class="built_in">arguments</span> ) )</span><br><span class="line">				);</span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">		fNOP.prototype = <span class="keyword">this</span>.prototype;</span><br><span class="line">		fBound.prototype = <span class="keyword">new</span> fNOP();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> fBound;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>软绑定<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Function</span>.prototype.softBind) &#123;</span><br><span class="line">	<span class="built_in">Function</span>.prototype.softBind = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> fn = <span class="keyword">this</span>,</span><br><span class="line">			curried = [].slice.call( <span class="built_in">arguments</span>, <span class="number">1</span> ),</span><br><span class="line">			bound = <span class="function"><span class="keyword">function</span> <span class="title">bound</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> fn.apply(</span><br><span class="line">					(!<span class="keyword">this</span> ||</span><br><span class="line">						(<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">"undefined"</span> &amp;&amp;</span><br><span class="line">							<span class="keyword">this</span> === <span class="built_in">window</span>) ||</span><br><span class="line">						(<span class="keyword">typeof</span> global !== <span class="string">"undefined"</span> &amp;&amp;</span><br><span class="line">							<span class="keyword">this</span> === global)</span><br><span class="line">					) ? obj : <span class="keyword">this</span>,</span><br><span class="line">					curried.concat.apply( curried, <span class="built_in">arguments</span> )</span><br><span class="line">				);</span><br><span class="line">			&#125;;</span><br><span class="line">		bound.prototype = <span class="built_in">Object</span>.create( fn.prototype );</span><br><span class="line">		<span class="keyword">return</span> bound;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="第三章：对象"><a href="#第三章：对象" class="headerlink" title="第三章：对象"></a>第三章：对象</h2><p>对象是大多是 JS 程序依赖的基本构建块儿。</p>
+<p>一个常见的错误论断是“JavaScript中的一切都是对象”。这明显是不对的。比如 string、number、boolean、null、undefined 这几个简单基本类型自身不是 object。</p>
+<p>一个 JSON 安全的对象可以简单地这样复制：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newObj = <span class="built_in">JSON</span>.parse( <span class="built_in">JSON</span>.stringify( someObj ) );</span><br></pre></td></tr></table></figure></p>
+<p>浅拷贝可以使用 <code>Object.assign()</code>来实现。</p>
+<p>所有的属性都用属性描述符来描述，通过<code>Object.getOwnPropertyDescriptor()</code>来查看，会发现一个对象不仅只有 value 值，还有 writable、enumerable 和 configurable。</p>
+<p>当然我们也可以使用<code>Object.defineProperty()</code>来添加新属性或使用期望的性质来修改既存的属性。</p>
+<p>writable 控制着改变属性值的能力。</p>
+<p>configurable 控制着该对象是否可配置</p>
+<p>enumerable 控制该对象是否可枚举</p>
+<p>防止扩展：<code>Object.preventExtensions()</code>可以防止一个对象被添加新的属性，同时保留其他既存的对象属性。</p>
+<p>封印：<code>Object.seal()</code>既不能添加更多的属性，也不能重新配置或删除既存属性，但是你依然可以修改他们的值。</p>
+<p>冻结：<code>Object.freeze()</code>阻止任何对对象或对象直属属性的改变。</p>
+<p>属性不必非要包含值 —— 它们也可以是带有 getter/setter 的“访问器属性”。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">	<span class="comment">// 为 `a` 定义 getter</span></span><br><span class="line">	get a() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>._a_;</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 为 `a` 定义 setter</span></span><br><span class="line">	set a(val) &#123;</span><br><span class="line">		<span class="keyword">this</span>._a_ = val * <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myObject.a = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">myObject.a; <span class="comment">// 4</span></span><br></pre></td></tr></table></figure></p>
+<p>你也可以使用 ES6 的 for..of 语法，在数据结构（数组，对象等）中迭代值，它寻找一个内建或自定义的 @@iterator 对象，这个对象由一个 next() 方法组成，通过这个 next() 方法每次迭代一个数据。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">	a: <span class="number">2</span>,</span><br><span class="line">	b: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty( myObject, <span class="built_in">Symbol</span>.iterator, &#123;</span><br><span class="line">	enumerable: <span class="literal">false</span>,</span><br><span class="line">	writable: <span class="literal">false</span>,</span><br><span class="line">	configurable: <span class="literal">true</span>,</span><br><span class="line">	value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> o = <span class="keyword">this</span>;</span><br><span class="line">		<span class="keyword">var</span> idx = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">var</span> ks = <span class="built_in">Object</span>.keys( o );</span><br><span class="line">		<span class="keyword">return</span> &#123;</span><br><span class="line">			next: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> &#123;</span><br><span class="line">					value: o[ks[idx++]],</span><br><span class="line">					done: (idx &gt; ks.length)</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; );</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手动迭代 `myObject`</span></span><br><span class="line"><span class="keyword">var</span> it = myObject[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line">it.next(); <span class="comment">// &#123; value:2, done:false &#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123; value:3, done:false &#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123; value:undefined, done:true &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 用 `for..of` 迭代 `myObject`</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> v <span class="keyword">of</span> myObject) &#123;</span><br><span class="line">	<span class="built_in">console</span>.log( v );</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="第四章：混合（淆）“类”的对象"><a href="#第四章：混合（淆）“类”的对象" class="headerlink" title="第四章：混合（淆）“类”的对象"></a>第四章：混合（淆）“类”的对象</h2><p>类描述了一种特定的代码组织和结构形式，他有实例化、继承和多态等机制。</p>
+<p>mixin 模式常用于在某种程度上模拟类的拷贝行为，但是这通常导致像显式假想多态那样（OtherObj.methodName.call(this, …)）难看而且脆弱的语法，这样的语法又常导致更难懂和更难维护的代码。</p>
+<p>明确的 mixin 和类拷贝又不完全相同，因为对象（和函数！）仅仅是共享的引用被复制，不是对象/函数自身被复制。</p>
+<h2 id="第五章：原型"><a href="#第五章：原型" class="headerlink" title="第五章：原型"></a>第五章：原型</h2><p>每个普通的 [[prototype]] 链的最顶端，是内建的 Object.prototype。</p>
+<p>我们现在来考察 myObject.foo = “bar” 赋值的三种场景，当 foo 不直接存在于 myObject，但存在于 myObject 的 [[Prototype]] 链的更高层时：</p>
+<ol>
+<li><p>如果一个普通的名为 foo 的数据访问属性在 [[Prototype]] 链的高层某处被找到，而且没有被标记为只读（writable:false），那么一个名为 foo 的新属性就直接添加到 myObject 上，形成一个遮蔽属性。</p>
+</li>
+<li><p>如果一个 foo 在 [[Prototype]] 链的高层某处被找到，但是它被标记为只读（writable:false） ，那么设置既存属性和在 myObject 上创建遮蔽属性都是不允许的。如果代码运行在 strict mode 下，一个错误会被抛出。否则，这个设置属性值的操作会被无声地忽略。不论怎样，没有发生遮蔽。</p>
+</li>
+<li><p>如果一个 foo 在 [[Prototype]] 链的高层某处被找到，而且它是一个 setter，那么这个 setter 总是被调用。没有 foo 会被添加到（也就是遮蔽在）myObject 上，这个 foo setter 也不会被重定义。</p>
+</li>
+</ol>
+<p>我们通过 instanceof 或者 isPrototypeOf 方法来判断一个对象是否存在某个原型链中。</p>
+<p><strong>proto</strong> 的代码实现如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty( <span class="built_in">Object</span>.prototype, <span class="string">"__proto__"</span>, &#123;</span><br><span class="line">	get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.getPrototypeOf( <span class="keyword">this</span> );</span><br><span class="line">	&#125;,</span><br><span class="line">	set: <span class="function"><span class="keyword">function</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">		<span class="comment">// ES6 的 setPrototypeOf(..)</span></span><br><span class="line">		<span class="built_in">Object</span>.setPrototypeOf( <span class="keyword">this</span>, o );</span><br><span class="line">		<span class="keyword">return</span> o;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure></p>
+<p>Object.create() 的代码实现如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Object</span>.create) &#123;</span><br><span class="line">	<span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">		F.prototype = o;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="第六章：行为委托"><a href="#第六章：行为委托" class="headerlink" title="第六章：行为委托"></a>第六章：行为委托</h2><p>行为委托意味着对象彼此是对等的，在它们自己当中相互委托，而不是父类与子类的关系。JavaScript 的 [[Prototype]] 机制的设计本质，就是行为委托机制。这意味着我们可以选择挣扎着在 JS 上实现类机制，也可以欣然接受 [[Prototype]] 作为委托机制的本性。</p>
+<p>面线对象和行为委托的思维模式比较如下：<br>面向对象的代码形式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">who</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.me = who;</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.identify = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"I am "</span> + <span class="keyword">this</span>.me;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params">who</span>) </span>&#123;</span><br><span class="line">	Foo.call( <span class="keyword">this</span>, who );</span><br><span class="line">&#125;</span><br><span class="line">Bar.prototype = <span class="built_in">Object</span>.create( Foo.prototype );</span><br><span class="line"></span><br><span class="line">Bar.prototype.speak = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert( <span class="string">"Hello, "</span> + <span class="keyword">this</span>.identify() + <span class="string">"."</span> );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b1 = <span class="keyword">new</span> Bar( <span class="string">"b1"</span> );</span><br><span class="line"><span class="keyword">var</span> b2 = <span class="keyword">new</span> Bar( <span class="string">"b2"</span> );</span><br><span class="line"></span><br><span class="line">b1.speak();</span><br><span class="line">b2.speak();</span><br></pre></td></tr></table></figure></p>
+<p>面向行为委托的代码形式：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Foo = &#123;</span><br><span class="line">	init: <span class="function"><span class="keyword">function</span>(<span class="params">who</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.me = who;</span><br><span class="line">	&#125;,</span><br><span class="line">	identify: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"I am "</span> + <span class="keyword">this</span>.me;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Bar = <span class="built_in">Object</span>.create( Foo );</span><br><span class="line"></span><br><span class="line">Bar.speak = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert( <span class="string">"Hello, "</span> + <span class="keyword">this</span>.identify() + <span class="string">"."</span> );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b1 = <span class="built_in">Object</span>.create( Bar );</span><br><span class="line">b1.init( <span class="string">"b1"</span> );</span><br><span class="line"><span class="keyword">var</span> b2 = <span class="built_in">Object</span>.create( Bar );</span><br><span class="line">b2.init( <span class="string">"b2"</span> );</span><br><span class="line"></span><br><span class="line">b1.speak();</span><br><span class="line">b2.speak();</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/03/13/书评-YDKJSthis与对象原型/" data-id="cjt6jjmj3000aj3ztalykha6y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "JinGuo"
+        },
+        "headline": "书评-YDKJSthis与对象原型",
+        "image": "http://yoursite.comhttps://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/this%20&%20object%20prototypes/cover.jpg",
+        "keywords": "",
+        "genre": "前端",
+        "datePublished": "2019-03-13",
+        "dateCreated": "2019-03-13",
+        "dateModified": "2019-03-13",
+        "url": "http://yoursite.com/2019/03/13/书评-YDKJSthis与对象原型/",
+        "description": "第一章：this 是什么this 不是编写时绑定，而是运行时绑定。它依赖于函数调用的上下文条件。 this 绑定与函数声明的位置没有任何关系，而与函数被调用的方式紧密相连。
+this 既不是函数自身的引用，也不是函数词法作用域的引用。
+this 实际上是在函数被调用时建立的一个绑定，它指向什么是完全由函数被调用的调用点来决定的。
+首先展示一下 this 的动机和用途:123456789101112"
+        "wordCount": 1395
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/janggwa" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/18/书评-YDKJS作用域和闭包/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">书评-YDKJS作用域与闭包</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/03/13/书评-YDKJSthis与对象原型/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/this%20&%20object%20prototypes/cover.jpg)" alt="书评-YDKJSthis与对象原型" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/03/13/书评-YDKJSthis与对象原型/" class="title">书评-YDKJSthis与对象原型</a></p>
+                            <p class="item-date"><time datetime="2019-03-12T16:00:00.000Z" itemprop="datePublished">2019-03-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/18/书评-YDKJS作用域和闭包/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20&%20closures/cover.jpg)" alt="书评-YDKJS作用域与闭包" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/18/书评-YDKJS作用域和闭包/" class="title">书评-YDKJS作用域与闭包</a></p>
+                            <p class="item-date"><time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/15/书评-YDKJS入门与进阶/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/up%20%26%20going/cover.jpg)" alt="书评-YDKJS入门与进阶" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/15/书评-YDKJS入门与进阶/" class="title">书评-YDKJS入门与进阶</a></p>
+                            <p class="item-date"><time datetime="2019-02-14T16:00:00.000Z" itemprop="datePublished">2019-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/13/学习-TypeScript入门/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://img.janggwa.cn/typescript.jpeg)" alt="学习-TypeScript入门" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/前端/">前端</a></p>
+                            <p class="item-title"><a href="/2019/02/13/学习-TypeScript入门/" class="title">学习-TypeScript入门</a></p>
+                            <p class="item-date"><time datetime="2019-02-12T16:00:00.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 JinGuo</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/03/13/书评-YDKJSthis与对象原型/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
