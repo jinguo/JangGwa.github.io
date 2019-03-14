@@ -132,12 +132,12 @@
     <div class="post-toc-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一章-什么是作用域？"><span class="toc-text">第一章 什么是作用域？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编译器理论"><span class="toc-text">编译器理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#理解作用域"><span class="toc-text">理解作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套的作用域"><span class="toc-text">嵌套的作用域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-词法作用域"><span class="toc-text">第二章 词法作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三章-函数与块儿作用域"><span class="toc-text">第三章 函数与块儿作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数作用域"><span class="toc-text">函数作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块儿作用域"><span class="toc-text">块儿作用域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四章-提升"><span class="toc-text">第四章 提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五章-作用域闭包"><span class="toc-text">第五章 作用域闭包</span></a></li></ol>
     </div>
-  </div><div class="post-content"><h2 id="第一章-什么是作用域？"><a href="#第一章-什么是作用域？" class="headerlink" title="第一章 什么是作用域？"></a>第一章 什么是作用域？</h2><p>几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。<br>作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。</p>
+  </div><div class="post-content"><h2 id="第一章-什么是作用域？"><a href="#第一章-什么是作用域？" class="headerlink" title="第一章 什么是作用域？"></a>第一章 什么是作用域？</h2><p>几乎所有语言的最基础模型之一就是在变量中存储值，并且在稍后取出或修改这些值的能力。<br>作用域就是定义如何在某些位置存储变量，以及如何在稍后找到这些变量。<br><a id="more"></a></p>
 <h3 id="编译器理论"><a href="#编译器理论" class="headerlink" title="编译器理论"></a>编译器理论</h3><p>编译的三个步骤</p>
 <p>1.分词/词法分析：将一连串的字符打断成有意义的片段，称为 token，例子：<code>var a = 2;=&gt; var, a, =, 2, ;</code>。</p>
 <p>2.解析：将一个 token 的流转换成一个嵌套元素的树，它综合地表示了程序的语法结构。这棵树称为抽象语法树（AST）</p>
 <p>3.代码生成：这个处理将抽象语法树转换为可执行的代码。</p>
-<p>JavaScript 的编译和其他语言不同，不是提前发生在一个构建的步骤中。对于 JavaScript 来说，在许多情况下，编译发生在代码执行前的仅仅几微秒之内。为了确保最快的性能，JS 引擎使用了 JIT等等<br><a id="more"></a></p>
+<p>JavaScript 的编译和其他语言不同，不是提前发生在一个构建的步骤中。对于 JavaScript 来说，在许多情况下，编译发生在代码执行前的仅仅几微秒之内。为了确保最快的性能，JS 引擎使用了 JIT等等</p>
 <h3 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h3><p>引擎：负责从始至终的编译和执行我们的 JavaScript 程序。<br>编译器：引擎的朋友之一；处理所有解析和代码生成的活儿。<br>作用域：引擎的另一个朋友；收集并维护一张所有被声明的标识符的列表，并对当前执行中的代码如何访问这些变量强制实施一组严格的规则。</p>
 <p>对于 <code>var a = 2;</code>这个语句，编译器将会这样处理：</p>
 <p>1.遇到<code>var a</code>，编译器让作用域去查看对于这个特定的作用域集合，变量 a 是否已经存在了。如果是，编译器就忽略这个声明并继续前进。否则，编译器就让作用域去为这个作用域集合声明一个称为 a 的新变量。</p>
