@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="学习-JS基础知识点"><meta name="google-site-verification" content="UA-136124913-1"><link rel="alternate" href="/default" title="jinguo's home"><link rel="shortcut icon" type="image/x-icon" href="/gou.jpg?v=2.11.0">
+<link rel="canonical" href="http://yoursite.com/2019/05/03/学习-JS基础知识点/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136124913-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136124913-1');
+</script><script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "IjDFyQ3yasLyrQTbfVxBRd9n-gzGzoHsz",
+      appKey: "XzgCCdnbtrGLTQmVxBRrxYhe"
+    });
+  </script><script>
+  window.config = {"leancloud":{"app_id":"IjDFyQ3yasLyrQTbfVxBRd9n-gzGzoHsz","app_key":"XzgCCdnbtrGLTQmVxBRrxYhe"},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>学习-JS基础知识点 - jinguo's home</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">jinguo's home</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/categories">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">jinguo's home</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">学习-JS基础知识点
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-03
+        </span><span class="post-category">
+            <a href="/categories/前端/">前端</a>
+            </span>
+        <span class="post-visits" data-url="/2019/05/03/学习-JS基础知识点/" data-title="学习-JS基础知识点">
+          Visits 0
+        </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#基础类型和对象类型"><span class="toc-text">基础类型和对象类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typeof和instanceof"><span class="toc-text">typeof和instanceof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型转换"><span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this"><span class="toc-text">this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深浅拷贝"><span class="toc-text">深浅拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-text">原型</span></a>
+    </li></div>
+  </div><div class="post-content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本篇文章介绍面试中经常问的JS基础知识点。文章中的关联问题可以在面试官问了问题后自己进行引申这些相关话题，从而引导面试官询问自己擅长的部分。后续会持续推出HTML知识点、CSS知识点、ES6知识点、JS进阶知识点、webpack知识点、react知识点、组件设计相关知识点、浏览器相关知识点、网络相关知识点、算法相关知识点等文章进行全面的知识梳理。</p>
+<h2 id="基础类型和对象类型"><a href="#基础类型和对象类型" class="headerlink" title="基础类型和对象类型"></a>基础类型和对象类型</h2><p>Q: 基础类型有哪些？<br>A: 基础类型有 <code>number、undefined、null、bollean、string、symbol。</code><br>关联Q: 和对象类型的存储有什么区别？<br>关联A: 基础类型存储在栈内存中，存储的是值，是没有函数可以调用的。对象类型存储在堆内存中，存储的是地址。<br>关联Q: <code>null</code>是对象吗？<br>关联A: 虽然<code>typeof null</code>输出的是<code>object</code>，但是<code>null</code>其实是基础类型。这个错误是因为JS的最初版本是32位系统，000开头代表的是对象，而<code>null</code>表示全零，所以被错误的判断为<code>object</code></p>
+<h2 id="typeof和instanceof"><a href="#typeof和instanceof" class="headerlink" title="typeof和instanceof"></a>typeof和instanceof</h2><p>Q: <code>typeof</code>能正确的判断类型吗？<br>A: 对于基础类型，除了<code>null</code>其余的基础类型都能正确判断类型，对于对象类型，除了函数都会显示<code>object</code>，所以不能准确区分类型。<br>关联Q: instanceof能正确的判断类型吗?<br>关联A: <code>instanceof</code>可以准确的判断对象类型，因为内部机制是通过原型链来判断的。但是它不能区分基础类型，当然也可以写一个自定义类，修改<code>Symbol.hasInstance</code>属性来判断基础类型。</p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>Q: == 和 === 有什么区别？<br>A: <code>===</code>不需要进行类型转换，只有类型相同，并且值相等时返回<code>true</code>,<code>==</code>需要进行类型转换比较。<br>关联Q: 类型转换的规则是怎样的？<br>关联A: 先判断类型是否相等，如果相等就判断值是否相等；判断类型是否是<code>null</code>或者<code>undefined</code>，如果是则返回<code>true</code>；判断类型是否是<code>number</code>和<code>string</code>,如果是则把<code>string</code>转成<code>number</code>；判断类型其中一方是否是<code>boolean</code>，如果是则把<code>boolean</code>转成<code>number</code>再进行比较；判断类型其中一方是否是<code>object</code>,且另一方是<code>string、number、symbol</code>如果是则把<code>object</code>转成原始类型在进行比较。对象转原始类型会调用内置的<code>Symbol.toPrimitive</code>函数。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>Q: 如何正确判断this?<br>A: this的绑定规则有四种：默认绑定、隐式绑定、硬绑定、new绑定。new绑定的优先级最高，然后是硬绑定，然后是隐式绑定，最后是默认绑定。<br>关联Q: 箭头函数的this是什么？<br>关联A: 箭头函数的<code>this</code>取决于包裹箭头函数的第一个普通函数的<code>this</code>。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>Q: 什么是闭包？<br>A: 闭包就是能够访问另一个函数作用域下的变量的函数。<br>关联Q: 闭包有哪些使用场景?<br>关联A: 封装私有变量、模仿块级作用域、实现JS的模块。</p>
+<h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h2><p>Q: 浅拷贝和深拷贝是什么？<br>A: 浅拷贝只会拷贝所有属性值到新对象中，如果属性是对象拷贝的是地址。深拷贝会深层次的拷贝对象的值。<br>关联Q: 如何实现浅拷贝和深拷贝？<br>关联A: 浅拷贝可以通过<code>Object.assign</code>方法来实现，另外也可以通过<code>...</code>操作符来实现。深拷贝可以通过<code>JSON.parse(JSON.stringify(object))</code>来解决，但是这个方法会忽略<code>undefined、symbol</code>，且不能序列化函数，不能解决循环引用的对象。如果拷贝的对象含有内置类型不包含函数，也可以使用<code>MessageChannel</code>来实现。</p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>Q: 如何理解原型？如何理解原型链？<br>A: 每当定义一个对象时，对象都会包含一些预定义的属性。其中每个函数对象都有一个<code>prototype</code>属性，这个属性指向函数的原型对象。原型链就是多个对象通过<strong>proto</strong>连接了起来。通过原型链可以拥有定义在其他对象中的属性和方法。<br>关联Q: 是不是所有函数都有prototype属性？<br>关联A: <code>Function.prototype.bind()</code>就没有这个属性。</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">JinGuo</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2019/05/03/学习-JS基础知识点/">http://yoursite.com/2019/05/03/学习-JS基础知识点/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/16/学习-ES6基础知识点/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">学习-ES6基础知识点</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/03/14/书评-YDKJS类型与文法/">
+        <span class="next-text nav-default">书评-YDKJS类型与文法</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:janggwazkw@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/janggwa" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="copyright-year">&copy;2016 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">JinGuo</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/05/03/学习-JS基础知识点/';
+        this.page.identifier = '2019/05/03/学习-JS基础知识点/';
+        this.page.title = '学习-JS基础知识点';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jinguo.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
